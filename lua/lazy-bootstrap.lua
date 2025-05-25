@@ -1,5 +1,7 @@
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+--    vim.fn.stdpath 'data' evaluates to `~/.local/share/NVIM_APPNAME/ if specified or
+--    defaults to ~/.local/share/nvim/
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
