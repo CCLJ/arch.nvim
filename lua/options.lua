@@ -71,13 +71,11 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
--- always use spaces for tabs
-vim.o.expandtab = true
---[[ other tab settings to remember
-vim.o.tabstop = 8 -- Number of spaces that a <Tab> in the file counts for.
-vim.o.softtabstop = 8 -- Number of spaces that a <Tab> counts for pressing Tab or Backspace(<BS>)
-vim.o.shiftwidth = 8 -- Number of spaces to use for each step of (auto)indent.
+-- Set default indentation options
+vim.o.expandtab = true -- use spaces for tabs
+vim.o.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for.
+vim.o.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent.
+vim.o.softtabstop = -1 -- Number of spaces that a <Tab> counts for pressing Tab or Backspace(<BS>). if negative use shiftwidth value
 vim.o.autoindent = true -- Copy indent from current line when starting a new line
-]]
 
 -- vim: ts=2 sts=2 sw=2 et
