@@ -32,6 +32,12 @@ return {
       -- return '%2l:%-2v'
       -- end
 
+      require('mini.bracketed').setup()
+      require('mini.operators').setup()
+      require('mini.bufremove').setup()
+      require('mini.jump').setup()
+      require('mini.jump2d').setup()
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
