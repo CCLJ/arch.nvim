@@ -1,4 +1,3 @@
--- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 --
 -- This is often very useful to both group configuration, as well as handle
 -- lazy loading plugins that don't need to be loaded immediately at startup.
@@ -56,14 +55,18 @@ return {
           F12 = '<F12>',
         },
       },
-
+    },
+    config = function()
+      local wk = require 'which-key'
       -- Document existing key chains
-      spec = {
+      wk.add {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      },
-    },
+        { '<leader>c', group = 'Trouble Sym/LSP' },
+        { '<leader>x', group = 'Quickfi[X]/Trouble' },
+      }
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
