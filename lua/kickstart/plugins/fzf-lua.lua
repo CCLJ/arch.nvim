@@ -4,21 +4,19 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   -- or if using mini.icons/mini.nvim
   -- dependencies = { "echasnovski/mini.icons" },
-  opts = {},
+  opts = {
+    defaults = {
+      git_icons = false,
+      file_icons = false,
+      color_icons = false,
+    },
+  },
   config = function()
-    require('fzf-lua').setup {
-      defaults = {
-        git_icons = false,
-        file_icons = false,
-        color_icons = false,
-      },
-    }
-
     local builtin = require 'fzf-lua'
     vim.keymap.set('n', '<leader>sh', builtin.helptags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect FzfLua' })
+    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]ee FzfLua' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_cword, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sW', builtin.grep_cWORD, { desc = '[S]earch current [W]ORD' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by Live[G]rep' })
