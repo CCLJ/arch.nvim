@@ -1,18 +1,3 @@
--- Alternatively, use `config = function() ... end` for full control over the configuration.
--- If you prefer to call `setup` explicitly, use:
---    {
---        'lewis6991/gitsigns.nvim',
---        config = function()
---            require('gitsigns').setup({
---                -- Your gitsigns configuration here
---            })
---        end,
---    }
---
--- Here is a more advanced example where we pass configuration
--- options to `gitsigns.nvim`.
---
--- See `:help gitsigns` to understand what the configuration keys do
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -58,8 +43,18 @@ return {
         map('v', '<leader>hr', function()
           gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'git [r]eset hunk' })
-        -- normal mode
-        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
+        -- normal mode"NeogitOrg/neogit",
+        dependencies =
+          {
+            'nvim-lua/plenary.nvim', -- required
+            'sindrets/diffview.nvim', -- optional - Diff integration
+
+            -- Only one of these is needed.
+            'nvim-telescope/telescope.nvim', -- optional
+            'ibhagwan/fzf-lua', -- optional
+            'echasnovski/mini.pick', -- optional
+            'folke/snacks.nvim', -- optional
+          }, map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
         map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
         map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
         map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
@@ -74,6 +69,24 @@ return {
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
       end,
+    },
+  },
+  {
+    'tpope/vim-fugitive',
+    cmd = 'Git',
+  },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+      'ibhagwan/fzf-lua', -- optional
+    },
+    opts = {
+      integrations = {
+        diffview = true,
+        fzf_lua = true,
+      },
     },
   },
 }
