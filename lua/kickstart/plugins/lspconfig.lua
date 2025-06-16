@@ -214,10 +214,10 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        clangd = {},
+        gopls = {},
+        pyright = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -276,6 +276,18 @@ return {
           end,
         },
       }
+
+      -- In case you want to install an lsp directly on your system, you;ll need to configure it and enable it manually
+      -- local system_installed_servers = {
+      --   clangd = {},
+      -- }
+      --
+      -- for system_server_name, system_server_config in pairs(system_installed_servers) do
+      --   local server_config = system_server_config or {}
+      --   server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
+      --   vim.lsp.config(system_server_name, server_config)
+      --   vim.lsp.enable(system_server_name)
+      -- end
     end,
   },
 }
