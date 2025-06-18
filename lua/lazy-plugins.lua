@@ -62,6 +62,7 @@ require('lazy').setup({
   require 'custom/plugins/lualine',
   require 'custom/plugins/noice',
   require 'custom/plugins/theme',
+  require 'custom/plugins/indent-blankline',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
