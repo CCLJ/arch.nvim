@@ -63,6 +63,8 @@ require('lazy').setup({
   require 'custom/plugins/noice',
   require 'custom/plugins/theme',
   require 'custom/plugins/indent-blankline',
+  require 'custom/plugins/leetcode',
+
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
