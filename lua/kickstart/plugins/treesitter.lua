@@ -50,24 +50,25 @@ return {
     branch = 'main',
     config = function()
       require('nvim-treesitter-textobjects').setup {
-        select = {
-          -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = true,
+        textobjects = {
+          select = {
+            enable = true,
+            -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
+            keymaps = {
+              -- You can use the capture groups defined in textobjects.scm
+              ['af'] = { query = '@function.outer', desc = 'Select outer function region' },
+              ['if'] = { query = '@function.inner', desc = 'Select inner function region' },
+              ['ac'] = { query = '@class.outer', desc = 'Select outer class region' },
+              -- You can optionally set descriptions to the mappings (used in the desc parameter of
+              -- nvim_buf_set_keymap) which plugins like which-key display
+              ['ic'] = { query = '@class.inner', desc = 'Select inner class region' },
+              -- You can also use captures from other query groups like `locals.scm`
+              ['as'] = { query = '@local.scope', query_group = 'locals', desc = 'Select language scope' },
+            },
+          },
         },
       }
-
-      vim.keymap.set({ 'x', 'o' }, 'af', function()
-        require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects')
-      end, { desc = 'Select outer function' })
-      vim.keymap.set({ 'x', 'o' }, 'if', function()
-        require('nvim-treesitter-textobjects.select').select_textobject('@function.inner', 'textobjects')
-      end, { desc = 'Select inside function' })
-      vim.keymap.set({ 'x', 'o' }, 'ac', function()
-        require('nvim-treesitter-textobjects.select').select_textobject('@class.outer', 'textobjects')
-      end, { desc = 'Select outer class' })
-      vim.keymap.set({ 'x', 'o' }, 'ic', function()
-        require('nvim-treesitter-textobjects.select').select_textobject('@class.inner', 'textobjects')
-      end, { desc = 'Select outer class' })
     end,
   },
 }
