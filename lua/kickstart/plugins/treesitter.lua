@@ -7,7 +7,8 @@ return {
     opts = {},
     -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    config = function()
+    config = function(_, opts)
+      require('nvim-treesitter').setup(opts)
       local ensureInstalled =
         { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'go', 'rust', 'elixir', 'toml' }
       local alreadyInstalled = require('nvim-treesitter').get_installed 'parsers'
