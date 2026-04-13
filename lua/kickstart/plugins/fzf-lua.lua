@@ -10,6 +10,9 @@ return {
       file_icons = false,
       color_icons = false,
     },
+    grep = {
+      hidden = true,
+    },
   },
   config = function()
     local builtin = require 'fzf-lua'
