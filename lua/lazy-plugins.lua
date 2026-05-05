@@ -11,21 +11,17 @@ require('lazy').setup({
   -- include a plugin definition from file lua/path/name.lua
   require 'kickstart/plugins/git',
   require 'kickstart/plugins/which-key',
-  -- require 'kickstart/plugins/telescope',
   require 'kickstart/plugins/fzf-lua',
-  -- require 'kickstart/plugins/lspconfig',
   require 'kickstart/plugins/native-lspconfig',
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/blink-cmp',
   require 'kickstart/plugins/todo-comments',
   require 'kickstart/plugins/mini',
   require 'kickstart/plugins/treesitter',
-  -- require 'kickstart/plugins/undotree',
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -35,7 +31,6 @@ require('lazy').setup({
   require 'custom/plugins/oil',
   require 'custom/plugins/trouble',
   require 'custom/plugins/flash',
-  -- require 'custom/plugins/harpoon',
   require 'custom/plugins/lualine',
   require 'custom/plugins/noice',
   require 'custom/plugins/theme',
