@@ -2,7 +2,7 @@
 return {
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
-  root_markers = { '.luarc.json', '.luarc.jsonc' },
+  root_markers = { '.luarc.json', '.luarc.jsonc', 'init.lua', '.git' },
   settings = {
     Lua = {
       completion = { callSnippet = 'Replace' },
@@ -21,6 +21,9 @@ return {
           vim.env.VIMRUNTIME,
           '${3rd}/luv/library',
         },
+      },
+      diagnostics = {
+        globals = { 'vim' },
       },
     },
   },
