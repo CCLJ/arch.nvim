@@ -2,7 +2,11 @@ return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
-  opts = {},
+  opts = {
+    view_options = {
+      show_hidden = true,
+    },
+  },
   dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
   lazy = false,
@@ -12,6 +16,7 @@ return {
     vim.keymap.set('n', '<A-o>', function()
       vim.cmd 'w'
       vim.cmd 'Oil'
-    end, {})
+    end, { desc = 'Save file and show parent directory' })
+    vim.keymap.set('n', '<A-e>', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
   end,
 }
