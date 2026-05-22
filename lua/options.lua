@@ -75,4 +75,9 @@ vim.o.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent.
 vim.o.softtabstop = -1 -- Number of spaces that a <Tab> counts for pressing Tab or Backspace(<BS>). if negative use shiftwidth value
 vim.o.autoindent = true -- Copy indent from current line when starting a new line
 
+-- folding
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false -- don't fold everything on file open
+
 -- vim: ts=2 sts=2 sw=2 et

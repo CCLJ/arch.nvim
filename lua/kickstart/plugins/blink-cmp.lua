@@ -12,9 +12,7 @@ return {
           -- Build Step is needed for regex support in snippets.
           -- This step is not supported in many windows environments.
           -- Remove the below condition to re-enable on windows.
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
+          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then return end
           return 'make install_jsregexp'
         end)(),
         dependencies = {
@@ -58,6 +56,25 @@ return {
         preset = 'default',
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+        -- ['<Tab>'] = { 'select_next', 'fallback' },
+        -- ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        -- ['<C-l>'] = { 'snippet_forward', 'fallback' },
+        -- ['<C-h>'] = { 'snippet_backward', 'fallback' },
+
+        -- ['<Tab>'] = {
+        --   function(cmp)
+        --     local luasnip = require 'luasnip'
+        --
+        --     if cmp.is_visible() then
+        --       return cmp.select_next()
+        --     elseif luasnip.locally_jumpable(1) then
+        --       luasnip.jump(1)
+        --       return true
+        --     end
+        --   end,
+        --   'fallback',
+        -- },
+        --
         ['<CR>'] = { 'accept', 'fallback' },
       },
       appearance = {
