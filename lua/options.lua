@@ -77,7 +77,7 @@ vim.o.autoindent = true -- Copy indent from current line when starting a new lin
 
 -- folding
 vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldenable = false -- don't fold everything on file open
 
 -- vim: ts=2 sts=2 sw=2 et
